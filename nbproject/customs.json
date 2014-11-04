@@ -1,0 +1,9 @@
+{
+    "elements": {
+        "notification": {},
+        "ng-view": {},
+        "ngview": {},
+        "actions-menu": {}
+    },
+    "attributes": {}
+}

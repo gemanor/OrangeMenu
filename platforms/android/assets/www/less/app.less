@@ -1,0 +1,285 @@
+@font-face
+{
+    font-family: OronMFMedium;
+    src: url(../fonts/Oron-Medium.otf) format("opentype");
+}
+@font-face
+{
+    font-family: OronMFLight;
+    src: url(../fonts/OronLight-Regular.otf) format("opentype");
+}
+@font-face
+{
+    font-family: Helvetica45Light;
+    src: url(../fonts/helvetica_light.ttf) format('truetype');
+}
+
+
+html, body {
+    border: 0;
+    font-family: 'Helvetica45Light', 'OronMFLight', sans-serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+div, span, object, iframe, img, table, caption, thead, tbody,
+tfoot, tr, tr, td, article, aside, canvas, details, figure, hgroup, menu,
+nav, footer, header, section, summary, mark, audio, video {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cit, code,
+del, dfn, em, ins, q, samp, small, strong, sub, sup, b, i, hr, dl, dt, dd,
+ol, ul, li, fieldset, legend, label {
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+}
+
+article, aside, canvas, figure, figure img, figcaption, hgroup,
+footer, header, nav, section, audio, video {
+    display: block;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0;
+    caption, th, td {
+        text-align: left;
+        vertical-align: middle;
+    }
+}
+
+a img {
+    border: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+:focus {
+    outline: 0;
+}
+
+.clearfix{
+    zoom:1;
+    &:before, &:after{ content:""; display:table; }
+    &:after{ clear: both; }
+}
+body, html {height:100%;width:100%;}
+body {direction: rtl;
+      * {box-sizing: border-box !important;}
+}
+h1.resturantLogo {height:80px;text-align: center;position:relative;z-index:1000;
+                  .icon {display: block;position: absolute;font-size: 20px;top: 50%;right: 0px;-webkit-transform: translate(0, -50%);color: rgba(0,0,0,.6);padding:20px;}
+                  img {max-height: 100%;}
+}
+section.underConstruction {position: relative;z-index: 1000000;color:rgba(255,255,255,.8);text-align: center;padding:20px;
+                           .icon {display: block;}
+                           h1 {font-size:4em;font-weight: normal;}
+}
+.menuSection {position:absolute;width:100%;top:0px;left:0;right:0;bottom:0;overflow:hidden;direction: ltr;padding-top: 80px;
+              &.activeCart {padding-bottom: 40px;
+                            .columnWrapper {top:80px;bottom:40px;position:absolute;z-index: 1;}
+              }
+              .columnWrapper {top:80px;bottom:0;position:absolute;z-index: 1;}
+              .menuColumnsList {width:100%;height:100%;
+                                li {float: right;position: relative;height:100%;direction:rtl;text-align:right;
+                                    h3 {position:absolute;top:0px;height:40px;left:0;right:0;text-align: center;line-height: 38px;background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%,rgba(0,0,0,0.6) 100%);border-left: 1px solid rgba(0,0,0,.2);color: rgba(255,255,255,.9);font-weight: normal;}
+                                    .scrollWrapper {position:absolute;top:40px;bottom:0;left:0;right:0;overflow:hidden;
+                                                    ul {position:absolute;z-index: 1;
+                                                        /*                                                        padding-bottom:84px;*/
+                                                        li.menuItem {position:relative;margin:4px 4px 8px;box-shadow:1px 1px 6px rgba(0,0,0,0.4);float:none;
+                                                                     img {width:100%;display: block;margin:0;padding:0;}
+                                                                     span.dishTitle {
+                                                                         bottom:0;left:0;right:0;display:block;position:relative;min-height: 40px;padding:4px;color:#333;background:rgba(255,255,255,.8);font-size:12px;padding-left:68px;
+                                                                         .dishPrice {position: absolute;top:50%;font-size:20px;display: block;width:60px;left:8px;-webkit-transform: translate(0,-50%);text-align: left;
+                                                                                     &:before {content:'₪';font-size: 12px;padding-right: 4px;}
+                                                                         }
+                                                                     }
+                                                        }
+                                                    }
+                                    }
+                                }
+              }
+              .menuCart {display:block;top:100%;left:0;right:0;height:100%;-webkit-transition:-webkit-transform .5s;position: absolute;background:rgba(0,0,0,0.8);z-index:100000;-webkit-transform: translate(0, -40px);
+                         &.opened {-webkit-transform: translate(0, -100%);}
+                         .toggleCart {display: block;padding:4px 40px;text-align: center;position:relative;
+                                      > .icon {display: block;left:10px;top:50%;-webkit-transform: translate(0, -50%);color: #fff;font-size:20px;position:absolute;}
+                         }
+                         .cartListWrapper {position:absolute;top:81px;left:0;right:0;bottom:0;overflow: hidden;}
+                         li, .listHeader {color:#fff;padding:8px 4px;text-align:right;border-bottom:1px solid rgba(255,255,255,.4);direction:rtl;
+                                          &.served {opacity: 0.6;}
+                                          figure {display:inline-block;width:20%;padding:0px 0px 0px 10px;vertical-align:top;
+                                                  img {width:100%;border: 2px solid #fff;box-shadow: 0px 2px 4px rgba(255,255,255,.4);}
+                                          }
+                                          span {display:inline-block;vertical-align:top;line-height:1;
+                                                &.name {width:40%;}
+                                                &.status {width:20%;}
+                                                &.quantity {width: 16%;text-align:center;}
+                                          }
+                         }
+              }
+              .menuItemPopup {display: block;position: absolute;top:0;left:0;right:0;bottom:0;z-index: 10000000;padding:10%;direction:rtl;
+                              .popUpOverlay {content:'';position: absolute;top:0;left:0;height:100%;width:100%;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index: -1;}
+                              .popupSelf {height:100%;width:100%;background:url(../img/halftone.png);padding:252px 0 56px;
+                                          h3 {color:#1b9abe;font-weight: normal;text-align: center;padding:4px 10px;height:72px;padding-bottom: 20px;position:absolute;top:0;left:0;right:0;width:100%;
+                                              &.small {font-size: 13px;line-height: 1.7;}
+                                              &:after {position: absolute;width: 80%;border-top: 1px solid #ddd;border-bottom: 1px solid #ddd;content: '';bottom: 10px;-webkit-transform: translate(-50%, 0);left: 50%;height: 3px;}
+                                          }
+                                          .popUpImageScroller {display: block;height: 180px;width:100%;top:72px;left:0;right:0;position:absolute;overflow:hidden;
+                                                               figure {display: block;width:100%;top:0;left:0;right:0;position:absolute;
+                                                                       img {display: block;width:100%;}
+                                                               }
+                                          }
+                                          .dishComments {height:100%;width:100%;overflow: hidden;position:relative;padding-top:38px;
+                                                         h4 {font-size: 1em;padding: 4px 12px;background: #1b9abe;color: #eee;top:6px;position: absolute;width:100%;left:0;
+                                                             &:before {content: '';display: block;position: absolute;width: 100%;left: 0;top: -4px;height: 2px;background: #1b9abe;}
+                                                         }
+                                                         .commentsSelf {position:absolute;top:38px;left:0;right:0;bottom:0;overflow:hidden;
+                                                                        .comments {
+                                                                            li {background:rgba(255,255,255,.4);padding:6px 12px;border-top:1px solid rgba(0,0,0,0.4);line-height:1em;
+                                                                                span {display: block;
+                                                                                      &.signature {font-size: 0.8em;text-align: left;}
+                                                                                }
+                                                                                &:nth-child(odd) {background:rgba(255,255,255,.6);}
+                                                                                &:first-child {border-top:medium none;}
+                                                                            }
+                                                                        }
+                                                         }
+                                          }
+                                          .orderContainer {position:absolute;bottom:0;left:0;right:0;height:56px;
+                                                           > span {display:block;width:33.333333%;float:right;height:100%;position:relative;
+                                                                   &.price {padding: 6px;font-size: 36px;text-align: center;line-height: 44px;background: rgba(255,255,255,.4);
+                                                                            &:before {content:'₪';font-size: 12px;padding-right: 4px;}
+                                                                   }
+                                                                   &.order {
+                                                                       .button {margin:0;height: 100%;width: 100%;display: block;border-radius:0px;background:#1b9abe;vertical-align: middle;
+                                                                                span {vertical-align: text-bottom;}
+                                                                       }
+                                                                   }
+                                                                   &.quantity {
+                                                                       .icon {height:100%;width:50%;position: absolute;top:0;right:0;z-index:10;
+                                                                              &:before {content: '';display: block;width: 0;right: 5px;top:50%;margin-top:-5px;position: absolute;border-top: 10px solid rgba(0,0,0,0.5);border-right: 8px solid transparent;border-left: 8px solid transparent;}
+                                                                              &:last-child {right:auto;left:0px;
+                                                                                            &:before {border-top:medium none;border-bottom: 10px solid rgba(0,0,0,0.5);right:auto;left:5px;}
+                                                                              }
+                                                                              &.disable:before {border-top-color: rgba(0,0,0,.1);}
+                                                                       }
+                                                                       .quantityBox {display: block;position: absolute;text-align:center;width:100%;top: 0;left: 0;padding:2px 20px;background: rgba(255,255,255,.5);font-size: 1.2em;line-height: 52px;}
+                                                                   }
+                                                           }
+                                          }
+                                          .closePopUp {padding:5px;background-clip: content-box;position:absolute;cursor: pointer;text-align: left;color:#333;line-height:20px;top:0;left:-20px;height:20px;width:20px;background:url(../img/halftone.png);}
+                              }
+              }
+}
+.notification {position: absolute;background:rgba(0,0,0,0.8);-webkit-transition:-webkit-transform .25s;display: block;width:80%;bottom:-50px;z-index: 100000000000;border-radius:4px;left:50%;-webkit-transform:translate(-50%, 0);padding:6px 12px;min-height:20px;color:#fff;text-align:center;
+               &.display {-webkit-transform: translate(-50%, -80px);}
+               &:after {content:'';}
+}
+
+.moreButton {z-index:1000;display:block;height:50px;width:50px;position:absolute;top:-50px;left:50%;background:rgba(0,0,0,0.4);border-radius: 50%;-webkit-transform: translate(-50%, 0);}
+
+.mainSection {position: relative;width:100%;height:100%;overflow:hidden;}
+.welcomeSection {position: relative;width:100%;height:100%;overflow:hidden;
+                 h3 {font-size:40px;top:50%;width: 100%;color:#ff6600;position:absolute;padding:20px 40px;z-index: 10000000;-webkit-transform:translate(0, -50%);}
+                 /*                 .topSlideShow {top:0;left:0;right:0;bottom:120px;position:absolute;opacity:0.9;
+                                                 .slideShow {height:100%;width:100%;
+                                                     .slide {display: block;height:100%;width:100%;text-align:center;
+                                                             img {min-width:100%;max-height: 100%;min-height: 100%;}
+                                                     }
+                                                 }
+                                  }*/
+                 .mainImage {top:0;left:0;right:0;bottom:120px;position: absolute;text-align:center;overflow:hidden;
+                             img {width:100%;}
+                 }
+                 .loginSection {position: absolute;min-height:120px;bottom:0;left:0;right:0;background:#bfb2a9;color:#313131;
+                                &:before {content:'';display: block;position: absolute;right:15px;top:-55px;height:40px;width:40px;background:url(../img/orangeLogo.jpg);background-size:100% 100%;}
+                                &:after {content: '';display: block;position: absolute;width: 100%;height:4px;background:#bfb2a9;top:-8px;left:0;}
+                                .loader {display: block;height: 80px;width: 80px;margin: 20px auto;
+                                         .clock {border-color: #313131;
+                                                 &:before, &:after {background: #313131;}
+                                         }
+                                }
+                                .comment {display: block;padding:10px;text-align: center;font-size: 1.2em;
+                                          strong {display:block;font-size:0.8em;
+                                                  span {font-weight: normal;
+                                                        &.orSpan {display: block;}
+                                                  }
+                                          }
+                                }
+                 }
+}
+
+.actionMenu {display: block;z-index: 10000000;background: rgba(0,0,0,0.4);position: absolute;top: 0;bottom: 0;right: -100%;width: 100%;-webkit-transition:all .25s;
+             &.opened {-webkit-transform: translate(-100%, 0);}
+             .closingLayer {top:0;left:0;bottom:0;right:0;display:block;position:absolute;}
+             .actionsMenu {top:0;left:50px;right:0;bottom:0;background:rgba(0,0,0,0.9);position:absolute;
+                           ul {height:100%;
+                               .menuItem {display: block;padding:6px;vertical-align:middle;border-bottom: 1px solid rgba(255,255,255,.2);border-top: 1px solid rgba(0,0,0,.9);
+                                          a {display: block;height:100%;width:100%;color:#fff;text-decoration: none;position:relative;font-size:2.2em;
+                                             span {text-shadow:2px 2px 3px rgba(0,0,0,0.8);
+                                                   &.icon{display: inline-block;font-size:20px;height:100%;font-weight: lighter;padding-left: 6px;vertical-align: middle;}
+                                                   &.text {font-size:0.6em;vertical-align: middle;}
+                                             }
+                                          }
+                               }
+                           }
+             }
+}
+
+.menuBackground {display: block;top:0px;left:0;right:0;bottom:0;position: absolute;
+                 img {position:absolute;height:100%;top:50%;left:50%;-webkit-transform: translate(-50%, -50%);}
+}
+
+.button {display: inline-block;background:#ff6600;font-family: 'Helvetica45Light', 'OronMFLight', sans-serif;color:#fff;font-size:1em;padding:4px 12px 6px;box-shadow: inset 0 -2px 0 rgba(0,0,0,.4);border-radius:2px;border:medium none;
+         &.colored {background:#1b9abe;}
+         &.block {display: block;margin:6px auto;}
+}
+
+.loader {position:relative;
+         .clock {border-radius: 60px;border: 3px solid #ff6600;height: 80px;width: 80px;position: absolute;top: 50%;left: 50%;margin: -40px 0 0 -40px;
+                 &:after {content: "";position: absolute;background-color: #ff6600;top: 2px;left: 48%;height: 38px;width: 4px;border-radius: 5px;-webkit-transform-origin: 50% 97%;transform-origin: 50% 97%;-webkit-animation: grdAiguille 2s linear infinite;animation: grdAiguille 2s linear infinite;}
+                 &:before {content: "";position: absolute;background-color: #ff6600;top: 6px;left: 48%;height: 35px;width: 4px;border-radius: 5px;-webkit-transform-origin: 50% 94%;transform-origin: 50% 94%;-webkit-animation: ptAiguille 12s linear infinite;animation: ptAiguille 12s linear infinite;}
+         }
+}
+
+@-webkit-keyframes grdAiguille {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes grdAiguille {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-webkit-keyframes ptAiguille {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+@keyframes ptAiguille {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

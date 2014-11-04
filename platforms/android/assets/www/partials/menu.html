@@ -1,0 +1,98 @@
+<section class="menuSection clearfix" ng-controller="menuCtrl" ng-iscroll="columnWrapper" ng-class="{'activeCart': orderedDishes.length}">
+    <section class="columnWrapper" ng-style="wrapperWidth">
+        <ul class="menuColumnsList">
+            <li class="menuColumn" ng-repeat="menu in resturantMenu.menu" ng-style="menuColumnWidth">
+                <h3>{{menu.name}}</h3>
+                <div class="scrollWrapper" ng-iscroll='menuColumn{{$index}}'>
+                    <ul class="menuColumnList">
+                        <li class="menuItem" ng-repeat="dish in menu.dishes">
+                            <article ng-click="openPopUp(dish)">
+                                <img ng-src="{{dish.image}}" />
+                                <span class="dishTitle" ng-color-thief="border">
+                                    {{dish.name}}
+                                    <span class="dishPrice">{{dish.price}}</span>
+                                </span>
+                            </article>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </section>
+    <section class="menuCart" ng-if="orderedDishes.length" ng-class="{'opened': cartState}">
+        <span class="toggleCart center">
+            <button class="button colored" ng-click="toggleCart()">
+                ההזמנה שלי
+                <span class="icon icon-basket"></span>
+            </button>
+            <span class="icon icon-close" ng-if="cartState" ng-click="toggleCart()"></span>
+        </span>
+        <article class="listHeader">
+            <figure>
+            </figure>
+            <span class="name">
+                המנה
+            </span>
+            <span class="status">
+                מצב
+            </span>
+            <span class="quantity">
+                כמות
+            </span>
+        </article>
+        <article class="cartListWrapper" ng-iscroll="cartList">
+            <ul class="cartTable">
+                <li ng-repeat="dish in orderedDishes" class="clearfix" ng-class="{'served':dish.status === 'הוגש'}">
+                    <figure><img ng-src="{{dish.dish.image}}" /></figure>
+                    <span class="name">{{dish.dish.name}}</span>
+                    <span class="status">{{dish.status}}</span>
+                    <span class="quantity">{{dish.quantity}}</span>
+                </li>
+            </ul>
+        </article>
+    </section>
+    <section class="menuItemPopup animated" ng-if="popUpOpened" ng-class="{'fadeIn' : startAnimate == true, 'fadeOut': endAnimate == true}">
+        <span class="popUpOverlay" ng-click="closePopUp()"></span>
+        <article class="popupSelf animated" ng-class="{'slideInDown' : startAnimate == true, 'slideOutDown': endAnimate == true}">
+            <h3 ng-color-thief="textColor" ng-click="closePopUp()" ng-class="{'small' : popUpDish.name.length > 72}">{{popUpDish.name}}</h3>
+            <article class="popUpImageScroller" ng-iscroll="popUpImage">
+                <figure>
+                    <img ng-src="{{popUpDish.image}}" />
+                </figure>
+            </article>
+            <article class="dishComments">
+                <h4>
+                    <span class="icon icon-bubbles"></span>
+                    מה אנשים חשבו?
+                </h4>
+                <article class="commentsSelf" ng-iscroll="popUpComments">
+                    <ul class="comments">
+                        <li ng-repeat="comment in popUpDish.comments">
+                            <span class="comment">
+                                {{comment.comment}}
+                            </span>
+                            <span class="signature">
+                                ({{comment.name}} - {{comment.date}})
+                            </span>
+                        </li>
+                    </ul>
+                </article>
+            </article>
+            <article class="orderContainer">
+                <span class="price">{{calculatePrice(popUpDish.price)}}</span>
+                <span class="quantity">
+                    <span class="icon" ng-click="changeQuantity('down')" ng-class="{'disable' : dishQuantity <= 1}"></span>
+                    <span class="quantityBox">{{dishQuantity}}</span>
+                    <span class="icon" ng-click="changeQuantity('up')"></span>
+                </span>
+                <span class="order">
+                    <button class="button block" ng-click="orderDish(popUpDish, dishQuantity)">
+                        <span class="icon icon-tag"></span>
+                        הזמנה
+                    </button>
+                </span>
+            </article>
+            <a class="closePopUp" ng-click="closePopUp()">X</a>
+        </article>
+    </section>
+</section>
