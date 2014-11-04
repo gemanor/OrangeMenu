@@ -1,4 +1,4 @@
 OrangeMenu
 ==========
 
-Cross-Platform mobile app for Digital restaurant menu that managed by restaurants owners
+Cross-Platform mobile app for Digital restaurant menu, self-managed by restaurants owners
